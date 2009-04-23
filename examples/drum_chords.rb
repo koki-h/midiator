@@ -23,6 +23,7 @@ midi.control_change 32, 10, 1 # TR-808 is Program 26 in LSB bank 1
 midi.program_change 10, 26
  
 include MIDIator::Drums
+RYTHM_CH = 9
  
 song = [ BassDrum1,
   [BassDrum2, SnareDrum1],
@@ -34,16 +35,16 @@ riff = [ HighTom1, HighTom2, LowTom1, LowTom2 ]
 # This starts to push the usability limit of play.
 4.times do
   song.each do |note|
-    midi.play note, 0.25, 10
+    midi.play note, 0.25, RYTHM_CH
   end
 end
 riff.each do |note|
-  midi.play note, 0.067, 10
+  midi.play note, 0.067, RYTHM_CH
 end
-midi.play CrashCymbal2, 0.25, 10
+midi.play CrashCymbal2, 0.25, RYTHM_CH
  
 4.times do
   song.each do |note|
-    midi.play note, 0.25, 10
+    midi.play note, 0.25, RYTHM_CH
   end
 end
