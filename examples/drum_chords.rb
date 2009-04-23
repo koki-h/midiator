@@ -15,15 +15,15 @@
 
 require 'rubygems'
 require 'midiator'
+RYTHM_CH = 9
  
 midi = MIDIator::Interface.new
 midi.autodetect_driver
  
-midi.control_change 32, 10, 1 # TR-808 is Program 26 in LSB bank 1
-midi.program_change 10, 26
+midi.control_change 32, RYTHM_CH, 1 # TR-808 is Program 26 in LSB bank 1
+midi.program_change RYTHM_CH, 26
  
 include MIDIator::Drums
-RYTHM_CH = 9
  
 song = [ BassDrum1,
   [BassDrum2, SnareDrum1],
